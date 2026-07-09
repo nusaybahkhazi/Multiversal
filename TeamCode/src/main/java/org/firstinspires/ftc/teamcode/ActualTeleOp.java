@@ -1,16 +1,17 @@
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.robot.Robot;
+package org.firstinspires.ftc.teamcode;
 
-import org.firstinspires.ftc.teamcode.Robot;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import org.firstinspires.ftc.teamcode.Robot.RobotMotors;
+
 public class ActualTeleOp extends OpMode {
-    Robot robotmotors = new Robot();
+    public RobotMotors robotMotors;
     @Override
     public void init() {
-        robotmotors.init(hardwareMap);
+        robotMotors = new RobotMotors(hardwareMap);
     }
 
     @Override
     public void loop() {
-        robotmotors.setMotorSpeed(0.5);
+
     }
 }
