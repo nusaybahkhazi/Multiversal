@@ -17,7 +17,7 @@ public class SaiTeleOp extends OpMode {
      */
     @Override
     public void loop() {
-
+        telemetry.addData("b", gamepad1.b);
     }
 
 }
