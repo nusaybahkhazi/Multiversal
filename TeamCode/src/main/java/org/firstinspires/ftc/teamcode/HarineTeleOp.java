@@ -19,4 +19,8 @@ public class HarineTeleOp extends OpMode {
     public void loop() {
 
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 745964e59963032f4f0488a91064fe6d9b76ed6c
 }
