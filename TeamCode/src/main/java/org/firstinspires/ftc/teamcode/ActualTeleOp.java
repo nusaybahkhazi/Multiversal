@@ -12,7 +12,7 @@ public class ActualTeleOp extends OpMode {
     @Override
     public void init() {
         motors = new RobotMotors(hardwareMap);
-        motors.setServoPosition(0.5);
+        //motors.setServoPosition(0.5);
     }
 
     @Override
@@ -22,5 +22,10 @@ public class ActualTeleOp extends OpMode {
         rotate = gamepad1.right_stick_x;
 
         motors.drive(forward, strafe, rotate);
+        if (gamepad1.a) {
+            motors.setServoPosition(0.84);
+        } else {
+            motors.setServoPosition(0.23);
+        }
     }
 }
