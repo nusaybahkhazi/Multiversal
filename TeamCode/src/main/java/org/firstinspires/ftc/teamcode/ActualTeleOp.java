@@ -16,7 +16,7 @@ public class ActualTeleOp extends OpMode {
 
     @Override
     public void loop() {
-        forward = gamepad1.left_stick_y;
+        forward = -gamepad1.left_stick_y;
         strafe = gamepad1.left_stick_x;
         rotate = gamepad1.right_stick_x;
 
