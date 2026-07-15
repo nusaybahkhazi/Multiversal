@@ -3,10 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 745964e59963032f4f0488a91064fe6d9b76ed6c
 @TeleOp(name = "Sai TeleOp")
 public class SaiTeleOp extends OpMode {
     /**
@@ -16,7 +13,7 @@ public class SaiTeleOp extends OpMode {
     public void init() {
 
     }
-<<<<<<< HEAD
+//<<<<<<< HEAD
     /**
      * This is called while OpMode is playing
      */
@@ -24,28 +21,28 @@ public class SaiTeleOp extends OpMode {
     public void loop() {
 
     }
-=======
+//=======
 
     double squareInputWithSign(double input) {
-        double output = input * input
+        double output = input * input;
 
         if (input < 0) {
-            output *= -1
+            output *= -1;
         }
         return output;
     }
 
-    public class RobotLocationPractice {
+    public class SaiTeleOp {
         double angle;
     }
 
     // constructor method
     public RobotLocationPractice(double angle) {
-        this.angle = angle
+        this.angle = angle;
     }
 
     public double getHeading() {
-        double angle = this.angle // copy the angle of imu
+        double angle = this.angle; // copy the angle of imu
         while (angle > 180) {
             angle -= 360; // subtract until in target range
         }
@@ -58,10 +55,10 @@ public class SaiTeleOp extends OpMode {
     
     @Override
     public void loop() {
-        double difference = gamepad1.left_joy_stick_x - gamepad1.right_joy_stick_x;
+        double difference = gamepad1.left_stick_x - gamepad1.right_stick_x;
         telemetry.addData("differences", difference);
         telemetry.addData("b", gamepad1.b);
-        double sum_of_triggers = gamepad1.right_trigger + gamepad1.gamepad1.left_trigger
+        double sum_of_triggers = gamepad1.right_trigger + gamepad1.left_trigger;
         telemetry.addData("sum of triggers", sum_of_triggers); 
         boolean isPressed = gamepad1.a
         if (gamepad1.a) {
@@ -69,7 +66,7 @@ public class SaiTeleOp extends OpMode {
         } else {
             telemetry.addData("A Button State", "Not Pressed");
         }
-        double leftY = gamepad1.left_joy_stick_y;
+        double leftY = gamepad1.left_stick_y;
         if (leftY < 0.1 && leftY > -0.1) {
             telemetry.addData("Left Stick Status: ", "In Dead Zone");
         } 
@@ -79,9 +76,9 @@ public class SaiTeleOp extends OpMode {
         // --------
         double yAxis = gamepad1.left_stick_y;
         telemetry.addData("Left Stick Normal", yAxis);
-        yAxis = squareInputWithSign(yAxis)
+        yAxis = squareInputWithSign(yAxis);
         telemetry.addData("Left Stick Modified", yAxis);
 
         
->>>>>>> 745964e59963032f4f0488a91064fe6d9b76ed6c
+
 }
