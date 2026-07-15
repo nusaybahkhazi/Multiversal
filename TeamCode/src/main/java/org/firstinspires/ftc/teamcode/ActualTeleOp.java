@@ -12,6 +12,7 @@ public class ActualTeleOp extends OpMode {
     @Override
     public void init() {
         motors = new RobotMotors(hardwareMap);
+        motors.setServoPosition(0.5);
     }
 
     @Override

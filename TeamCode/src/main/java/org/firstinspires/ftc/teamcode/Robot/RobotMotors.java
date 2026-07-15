@@ -58,6 +58,9 @@ public class RobotMotors {
             frontRightDrive.setPower(maxSpeed * (frontRightPower / maxPower));
             backRightDrive.setPower(maxSpeed * (backRightPower / maxPower));
         }
+        public void setServoPosition(double angle){
+            servo.setPosition(angle);
+        }
 
 
     }
