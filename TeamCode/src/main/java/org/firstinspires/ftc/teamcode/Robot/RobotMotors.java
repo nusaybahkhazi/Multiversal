@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Robot;
 
 //import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 //import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -8,6 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 //import com.qualcomm.robotcore.robot.Robot;
+import com.qualcomm.robotcore.hardware.IMU;
 
 public class RobotMotors {
     public DcMotorEx frontLeftDrive = null;
@@ -15,6 +17,7 @@ public class RobotMotors {
     public DcMotorEx backLeftDrive = null;
     public DcMotorEx backRightDrive = null;
     public Servo servo = null;
+    public Limelight3A limelight;
 
     public RobotMotors(HardwareMap hardwareMap) {
         frontLeftDrive = hardwareMap.get(DcMotorEx.class, "front_left_drive");
@@ -22,6 +25,7 @@ public class RobotMotors {
         backLeftDrive = hardwareMap.get(DcMotorEx.class, "back_left_drive");
         backRightDrive = hardwareMap.get(DcMotorEx.class, "back_right_drive");
         servo = hardwareMap.get(Servo.class, "servo");
+        limelight = hardwareMap.get(Limelight3A.class, "limelight");
 
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
