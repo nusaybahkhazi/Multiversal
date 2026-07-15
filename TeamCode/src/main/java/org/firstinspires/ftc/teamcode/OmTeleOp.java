@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-import org.firstinspires.ftc.teamcode.Robot.OmRobotMotors;
+import org.firstinspires.ftc.teamcode.Robot.RobotMotors;
 import org.firstinspires.ftc.teamcode.Util.DriveUtil;
 import org.firstinspires.ftc.teamcode.Util.MathUtil;
 import org.firstinspires.ftc.teamcode.Util.MotorUtil;
@@ -18,12 +18,12 @@ public class OmTeleOp extends OpMode {
     private static final double NORMAL_SPEED = 1.0;
     private static final double SLOW_SPEED = 0.4;
 
-    private OmRobotMotors robotMotors = null;
+    private RobotMotors robotMotors = null;
     private final MotorUtil motorUtil = new MotorUtil();
 
     @Override
     public void init() {
-        robotMotors = new OmRobotMotors(hardwareMap);
+        robotMotors = new RobotMotors(hardwareMap);
         telemetry.addLine("Initialized. Press play to start.");
         telemetry.update();
     }
