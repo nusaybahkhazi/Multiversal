@@ -14,7 +14,7 @@ public class RobotMotors {
     public DcMotorEx backLeftDrive = null;
     public DcMotorEx backRightDrive = null;
 
-    public RobotMotors(HardwareMap hardwareMap){
+    public RobotMotors(HardwareMap hardwareMap) {
         frontLeftDrive = hardwareMap.get(DcMotorEx.class, "front_left_drive");
         frontRightDrive = hardwareMap.get(DcMotorEx.class, "front_right_drive");
         backLeftDrive = hardwareMap.get(DcMotorEx.class, "back_left_drive");
@@ -34,7 +34,7 @@ public class RobotMotors {
         backLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
+    }
         public void drive(double forward, double strafe, double rotate) {
             double frontLeftPower = forward + strafe + rotate;
             double backLeftPower = forward - strafe + rotate;
@@ -55,5 +55,5 @@ public class RobotMotors {
             backRightDrive.setPower(maxSpeed * (backRightPower / maxPower));
         }
     }
-}
+
 
