@@ -34,6 +34,26 @@ public class RobotMotors {
         backLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        public void drive(double forward, double strafe, double rotate) {
+            double frontLeftPower = forward + strafe + rotate;
+            double backLeftPower = forward - strafe + rotate;
+            double frontRightPower = forward - strafe - rotate;
+            double backRightPower = forward + strafe - rotate;
+
+            double maxPower = 1.0;
+            double maxSpeed = 1.0;
+
+            maxPower = Math.max(maxPower, Math.abs(frontLeftPower));
+            maxPower = Math.max(maxPower, Math.abs(backLeftPower));
+            maxPower = Math.max(maxPower, Math.abs(frontRightPower));
+            maxPower = Math.max(maxPower, Math.abs(backRightPower));
+
+            frontLeftDrive.setPower(maxSpeed * (frontLeftPower / maxPower));
+            backLeftDrive.setPower(maxSpeed * (backLeftPower / maxPower));
+            frontRightDrive.setPower(maxSpeed * (frontRightPower / maxPower));
+            backRightDrive.setPower(maxSpeed * (backRightPower / maxPower));
+        }
     }
-    }
+}
 
