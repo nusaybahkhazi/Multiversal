@@ -18,6 +18,7 @@ public class RobotMotors {
     public DcMotorEx backRightDrive = null;
     public Servo servo = null;
     public Limelight3A limelight;
+    public IMU imu;
 
     public RobotMotors(HardwareMap hardwareMap) {
         frontLeftDrive = hardwareMap.get(DcMotorEx.class, "front_left_drive");
@@ -26,6 +27,7 @@ public class RobotMotors {
         backRightDrive = hardwareMap.get(DcMotorEx.class, "back_right_drive");
         servo = hardwareMap.get(Servo.class, "servo");
         limelight = hardwareMap.get(Limelight3A.class, "limelight");
+        //imu = hardwareMap.get(IMU.class, "imu");
 
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
