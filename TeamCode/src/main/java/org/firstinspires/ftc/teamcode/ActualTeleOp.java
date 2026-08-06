@@ -24,7 +24,8 @@ public class ActualTeleOp extends OpMode {
         motors.drive(forward, strafe, rotate);
         if (gamepad1.a) {
             motors.setServoPosition(0.84);
-        } else {
+        }
+        else {
             motors.setServoPosition(0.23);
         }
     }
