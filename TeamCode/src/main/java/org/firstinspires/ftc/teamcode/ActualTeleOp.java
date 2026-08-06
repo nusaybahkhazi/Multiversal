@@ -27,11 +27,18 @@ public class ActualTeleOp extends OpMode {
         rotate = gamepad1.right_stick_x;
 
         motors.drive(forward, strafe, rotate);
-        if (gamepad1.a) {
+       /* if (gamepad1.a) {
             motors.setServoPosition(0.84);
         }
         else {
             motors.setServoPosition(0.23);
+        }*/
+        double heading = bench.getHeading(AngleUnit.RADIANS);
+        if (heading < .5 && heading > -.5) {
+            motors.setServoPosition(.75);
+        }
+        else {
+            motors.setServoPosition(.25);
         }
     }
 }

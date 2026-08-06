@@ -20,7 +20,9 @@ public class IMUtest {
 
     }
     public double getHeading(AngleUnit angleUnit){
-        return imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES);
+        return imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
+
+
     }
 
 }
