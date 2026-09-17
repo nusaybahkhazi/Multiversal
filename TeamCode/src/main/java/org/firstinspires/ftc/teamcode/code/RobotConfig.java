@@ -7,6 +7,8 @@ public class robotConfig {
     private String servoName;
     private String limelightName;
     private String intakeMotorName;
+    private String imuName;
+    private String flywheelMotorName;
 
     // A default no-argument constructor is strictly required by Jackson
     public robotConfig() {}
@@ -29,5 +31,25 @@ public class robotConfig {
 
     public String getBackRightDriveName() {
         return BackRightDriveName;
+    }
+
+    public String getServoName() {
+        return servoName;
+    }
+
+    public String getLimelightName() {
+        return limelightName;
+    }
+
+    public String getIntakeMotorName() {
+        return intakeMotorName;
+    }
+
+    public String getImuName() {
+        return imuName;
+    }
+
+    public String getFlywheelMotorName() {
+        return flywheelMotorName;
     }
 }

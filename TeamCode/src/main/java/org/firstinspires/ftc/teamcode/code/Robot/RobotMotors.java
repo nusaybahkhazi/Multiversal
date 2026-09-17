@@ -17,6 +17,7 @@ public class RobotMotors {
     public DcMotorEx backLeftDrive = null;
     public DcMotorEx backRightDrive = null;
     public DcMotorEx intakeMotor = null;
+    public DcMotorEx flywheelMotor = null;
     public Servo servo = null;
     public Limelight3A limelight;
     public IMU imu;
@@ -31,7 +32,8 @@ public class RobotMotors {
         servo = hardwareMap.get(Servo.class, reader.servoName);
         limelight = hardwareMap.get(Limelight3A.class, reader.limelightName);
         intakeMotor = hardwareMap.get(DcMotorEx.class, reader.intakeMotorName);
-        //imu = hardwareMap.get(IMU.class, "imu");
+        imu = hardwareMap.get(IMU.class, reader.imuName);
+        flywheelMotor = hardwareMap.get(DcMotorEx.class, reader.flywheelMotorName);
 
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
