@@ -1,6 +1,0 @@
-Robot-Config:
-  name: "Robot Configuration File"
-  frontLeftDriveName: ""
-  frontRightDriveName: ""
-  BackLeftDriveName: ""
-  BackRightDriveName: ""

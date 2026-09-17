@@ -1,0 +1,8 @@
+name: "Robot Configuration File"
+frontLeftDriveName: "front_left_drive"
+frontRightDriveName: "front_right_drive"
+backLeftDriveName: "back_left_drive"
+backRightDriveName: "back_right_drive"
+servoName: ""
+limelightName: ""
+intakeMotorName: ""

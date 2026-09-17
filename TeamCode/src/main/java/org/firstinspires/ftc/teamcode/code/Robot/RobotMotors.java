@@ -20,15 +20,17 @@ public class RobotMotors {
     public Servo servo = null;
     public Limelight3A limelight;
     public IMU imu;
+    public RobotConfigReader reader = new RobotConfigReader();
 
     public RobotMotors(HardwareMap hardwareMap) {
-        frontLeftDrive = hardwareMap.get(DcMotorEx.class, "front_left_drive");
-        frontRightDrive = hardwareMap.get(DcMotorEx.class, "front_right_drive");
-        backLeftDrive = hardwareMap.get(DcMotorEx.class, "back_left_drive");
-        backRightDrive = hardwareMap.get(DcMotorEx.class, "back_right_drive");
-        servo = hardwareMap.get(Servo.class, "servo");
-        limelight = hardwareMap.get(Limelight3A.class, "limelight");
-        intakeMotor = hardwareMap.get(DcMotorEx.class, "intake");
+        reader.initConfig();
+        frontLeftDrive = hardwareMap.get(DcMotorEx.class, reader.frontLeftDriveName);
+        frontRightDrive = hardwareMap.get(DcMotorEx.class, reader.frontRightDriveName);
+        backLeftDrive = hardwareMap.get(DcMotorEx.class, reader.backLeftDriveName);
+        backRightDrive = hardwareMap.get(DcMotorEx.class, reader.backRightDriveName);
+        servo = hardwareMap.get(Servo.class, reader.servoName);
+        limelight = hardwareMap.get(Limelight3A.class, reader.limelightName);
+        intakeMotor = hardwareMap.get(DcMotorEx.class, reader.intakeMotorName);
         //imu = hardwareMap.get(IMU.class, "imu");
 
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -66,7 +68,7 @@ public class RobotMotors {
             frontRightDrive.setPower(maxSpeed * (frontRightPower / maxPower));
             backRightDrive.setPower(maxSpeed * (backRightPower / maxPower));
         }
-        public void setServoPosition(double angle){
+        public void setServoPosition(double angle) {
             servo.setPosition(angle);
         }
 
