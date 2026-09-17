@@ -21,9 +21,10 @@ public class RobotMotors {
     public Servo servo = null;
     public Limelight3A limelight;
     public IMU imu;
-    public RobotConfigReader reader = new RobotConfigReader();
+    public RobotConfigReader reader;
 
     public RobotMotors(HardwareMap hardwareMap) {
+        reader = new RobotConfigReader();
         reader.initConfig();
         frontLeftDrive = hardwareMap.get(DcMotorEx.class, reader.frontLeftDriveName);
         frontRightDrive = hardwareMap.get(DcMotorEx.class, reader.frontRightDriveName);
