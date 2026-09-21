@@ -1,61 +1,69 @@
-package org.firstinspires.ftc.teamcode.Robot;
+package org.firstinspires.ftc.teamcode.code.Robot;
 
 import com.qualcomm.hardware.limelightvision.LLResult;
 import com.qualcomm.hardware.limelightvision.Limelight3A;
-import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
-import org.firstinspires.ftc.robotcore.external.navigation.Pose3D;
-import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
-//@TeleOp
-public class AprilTag{
-    public Limelight3A limelight;
-    public IMU imu;
+public class AprilTag {
+    private Limelight3A limelight;
+    private IMU imu;
 
-    double Tx;
-    double Ty;
-    double Ta;
-    //@Override
-    public void init(HardwareMap hardwareMap) {
-        limelight = hardwareMap.get(Limelight3A.class, "limelight");
-        limelight.pipelineSwitch(0);
-        imu = hardwareMap.get(IMU.class, "imu");
-        RevHubOrientationOnRobot revHubOrientationOnRobot = new RevHubOrientationOnRobot(
-                RevHubOrientationOnRobot.LogoFacingDirection.UP,
-                RevHubOrientationOnRobot.UsbFacingDirection.LEFT
-        );
-        imu.initialize(new IMU.Parameters(revHubOrientationOnRobot));
+    private double tx;
+    private double ty;
+    private double ta;
+    private boolean hasTarget;
 
-    }
-    public void start(){
-        limelight.start();
-    }
-
-
-    public void loop() {
-        YawPitchRollAngles orientation = imu.getRobotYawPitchRollAngles();
-        limelight.updateRobotOrientation(orientation.getYaw());
-        LLResult llresult = limelight.getLatestResult();
-        if (llresult != null && llresult.isValid()){
-            Pose3D botPose = llresult.getBotpose_MT2();
-            Tx = llresult.getTx();
-            Ty = llresult.getTy();
-            Ta = llresult.getTa();
-
+    public void init(ConfiguredRobot robot) {
+        limelight = robot.limelight;
+        imu = robot.imu;
+        if (limelight != null) {
+            limelight.pipelineSwitch(0);
         }
     }
-    public double getTx() {
-        return Tx;
-    }
-    public double getTy() {
-        return Ty;
-    }
-    public double getTa() {
-        return Ta;
+
+    public void start() {
+        if (limelight != null) {
+            limelight.start();
+        }
     }
 
+    public void stop() {
+        if (limelight != null) {
+            limelight.stop();
+        }
+    }
+
+    public void loop() {
+        if (limelight == null) {
+            return;
+        }
+        if (imu != null) {
+            limelight.updateRobotOrientation(imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.DEGREES));
+        }
+        LLResult result = limelight.getLatestResult();
+        hasTarget = result != null && result.isValid();
+        if (hasTarget) {
+            tx = result.getTx();
+            ty = result.getTy();
+            ta = result.getTa();
+        }
+    }
+
+    public boolean hasTarget() {
+        return hasTarget;
+    }
+
+    public double getTx() {
+        return tx;
+    }
+
+    public double getTy() {
+        return ty;
+    }
+
+    public double getTa() {
+        return ta;
+    }
 }
