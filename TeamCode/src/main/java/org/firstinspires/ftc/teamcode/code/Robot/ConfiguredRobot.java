@@ -20,7 +20,8 @@ public class ConfiguredRobot {
     public DcMotorEx backLeftDrive;
     public DcMotorEx backRightDrive;
     public DcMotorEx intakeMotor;
-    public DcMotorEx flywheelMotor;
+    public DcMotorEx flywheelMotor1;
+    public DcMotorEx flywheelMotor2;
     public Servo servo;
     public Limelight3A limelight;
     public IMU imu;
@@ -33,7 +34,8 @@ public class ConfiguredRobot {
         frontRightDrive = getMotor(hardwareMap, config.getFrontRightDriveName(), DcMotor.Direction.FORWARD);
         backRightDrive = getMotor(hardwareMap, config.getBackRightDriveName(), DcMotor.Direction.FORWARD);
         intakeMotor = getMotor(hardwareMap, config.getIntakeMotorName(), DcMotor.Direction.FORWARD);
-        flywheelMotor = getMotor(hardwareMap, config.getFlywheelMotorName(), DcMotor.Direction.FORWARD);
+        flywheelMotor1 = getMotor(hardwareMap, config.getFlywheelMotor1Name(), DcMotor.Direction.FORWARD);
+        flywheelMotor2 = getMotor(hardwareMap, config.getFlywheelMotor2Name(), DcMotor.Direction.FORWARD);
 
         if (isConfigured(config.getServoName())) {
             servo = hardwareMap.get(Servo.class, config.getServoName());
@@ -105,6 +107,7 @@ public class ConfiguredRobot {
     }
 
     public void launch(double power) {
-        setPower(flywheelMotor, power);
+        setPower(flywheelMotor1, power);
+        setPower(flywheelMotor2, power);
     }
 }

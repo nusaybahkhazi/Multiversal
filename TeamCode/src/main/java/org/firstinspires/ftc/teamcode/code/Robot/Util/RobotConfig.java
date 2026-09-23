@@ -50,7 +50,11 @@ public class RobotConfig {
         return get("imuName");
     }
 
-    public String getFlywheelMotorName() {
-        return get("flywheelMotorName");
+    public String getFlywheelMotor1Name() {
+        return get("flywheelMotor1Name");
+    }
+
+    public String getFlywheelMotor2Name() {
+        return get("flywheelMotor2Name");
     }
 }
